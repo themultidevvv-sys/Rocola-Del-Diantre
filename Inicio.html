@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Multi's Rocola</title>
+    <link rel="stylesheet" href="estil.css">
+    <link rel="icon" href="Musica y videos/Icono.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="modal">
+        <div id="modal-content">
+            <h2>¿Quieres reproducir la música de fondo?</h2>
+            <button id="accept">Aceptar</button>
+            <button id="decline">Rechazar</button>
+        </div>
+    </div>
+
+<div class="wave-text">
+    <p><b><span>M</span><span>U</span><span>L</span><span>T</span><span>I</span><span>'</span><span>S</span> 
+        <span>R</span><span>O</span><span>C</span><span>O</span><span>L</span><span>A</span> 
+        <span class="copy">&copy;</span><span>t</span><span>e</span><span>a</span><span>m</span></b></p>
+</div>
+
+
+<audio id="click-sound">
+    <source src="Musica y videos/ConfirmMenu.ogg" type="audio/ogg">
+</audio>
+
+<audio id="audio" loop>
+    <source src="Musica y videos/BW.mp3" type="audio/mp3">
+    <source src="Musica y videos/wb.ogg" type="audio/ogg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+    <video id="background-video" loop autoplay muted>
+        <source src="Musica y videos/Fondo.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+<a href="#" class="link">
+</a>
+
+<div class="transition" id="transition">
+    <img src="Musica y videos/Spooky Month.webp" >
+    <div class="lod">Loading...</div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
