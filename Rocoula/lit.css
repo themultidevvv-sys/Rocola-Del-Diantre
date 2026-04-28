@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    flex-direction: column;
+    background: #0c192c;
+    background-image: url(Assets/Fondo.jpg);
+    background-repeat: repeat;
+    background-position: center;
+        background-size: 150% 150%; 
+    
+}
+.overlay {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.block, .raw, .childraw, .childraw-1, .far-raw, .far-raw_1 {
+    position: absolute;
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    transition: transform 1s ease-in-out;
+    z-index: 2001;
+}
+
+/* Estado inicial: Fuera de la pantalla a la izquierda */
+.block, .raw, .childraw, .childraw-1, .far-raw, .far-raw_1 {
+    transform: translateX(-100%);
+}
+
+.block {
+    width: 210%;
+    height: 100%;
+    background-image: url(Assets/Transicion.jpg); 
+    background-size: 100% 100%;
+    transform: translateX(-400%);
+}
+
+.raw {
+    width: 200%;
+    height: 25%;
+    margin-left: -30%;
+    background-color:rgb(166, 27, 181);
+}
+
+.childraw, .childraw-1 {
+    width: 200%;
+    height: 25%;
+    margin-left: -15%;
+    background-color:rgb(128, 24, 135);
+}
+
+.childraw {
+    margin-top: 23%;
+}
+
+.childraw-1 {
+    margin-top: -23%;
+}
+
+.far-raw, .far-raw_1 {
+    width: 200%;
+    height: 25%;
+    margin-left: -30%;
+    background-color:rgb(84, 8, 107);
+}
+
+.far-raw {
+    margin-top: 38%;
+}
+
+.far-raw_1 {
+    margin-top: -38%;
+}
+
+.cont {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: -22.7%;
+    margin-left: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.text-bubble {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para que las burbujas se posicionen dentro del contenedor */
+    width: 200px; /* Ancho fijo para las burbujas */
+}
+
+
+
+.bubble {
+    width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    font-size:140% ;
+    background: linear-gradient(to right,#5c95ff, #b9e6ff);
+    transition: background 1.2s, transform 1.2s ease-in-out;
+    position: absolute;
+    user-select: none;
+    text-align: center;
+    border: 8px double #48639c;
+}
+
+.sct{
+    background: linear-gradient(to top,#ececee, #98b5c5,rgb(86, 101, 105));
+    padding: 5px;
+}
+/* La burbuja seleccionada */
+.selected {
+    background: linear-gradient(to right, #80dbff, #c9fff6);
+    transform: scale(1.3) translateX(0);
+    color: rgb(92, 118, 141);
+    box-shadow: 0 0 30px #1ee2e9; 
+}
+
+.bubble.sct.selected {
+    background: linear-gradient(to top, #23d6f5, #94e0f7 , #a3e2e4,rgb(197, 227, 236)); /* Elige los colores que desees */
+    color: white; /* O el color que prefieras para el texto */
+}
+
+
+/* Burbujas cercanas (una posición arriba/abajo) */
+.bubble.prev {
+    transform: translateY(-140px) translateX(-80px);
+}
+
+.bubble.next {
+    transform: translateY(140px)  translateX(-80px);
+}
+
+/* Burbujas más alejadas (dos posiciones arriba/abajo) */
+.bubble.far {
+    transform: translateY(-280px) translateX(-160px); 
+}
+
+.bubble.faraway {
+    transform: translateY(280px) translateX(-160px); 
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+    z-index: -1;
+    right: 100%;
+    margin-top: 40%;
+}
+
+.bubbles span {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #006c67;
+    margin: 0 25px;
+    margin-top: -27%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #003844,
+    0 0 50px #006c67,
+    0 0 100px #006c67;
+    animation: animate 14s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background-color: #98cbb4;
+    box-shadow: 0 0 0 10px #7ba098,
+    0 0 50px #98cbb4,
+    0 0 100px #98cbb4;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+p {
+    color: antiquewhite;
+    font-size: 200%;
+    text-align: center;
+}
+
+.transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 1;
+        transition: opacity 3.5s ease-in-out;
+        transform: translateY(0);
+        z-index: 9999;
+    
+    }
+
+    .transition.fade-out{
+        transform: translateY(200%);
+    }
+
+.disco {
+    height: 40%;
+    width: auto;
+    transform: scaleX(-1);
+    margin-top: 15%;
+    margin-left: 5%;
+    }
+
+    .oscillate {
+        animation: oscillate 2s infinite; 
+        height: 105%;
+        width: 200%;
+    }
+
+    @keyframes oscillate {
+        0% {
+            transform: translateY(0);
+        }
+        25% {
+            transform: translateY(3px);
+        }
+        50% {
+            transform: translateY(-3px);
+        }
+        75% {
+            transform: translateY(3px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .vibration {
+        position: absolute; 
+        margin-top: 6%;
+        animation: vibration 0.6s infinite linear;
+        margin-left: -18%;
+    }
+    
+    .back{
+        position: absolute;
+        width: 200px;
+        height: auto;
+        right: 88%;
+        top: 75%;
+        z-index: 2000;
+    }
+
+    @keyframes vibration{
+        0%{
+            transform: translateX(0);
+        }
+        33%{
+            transform: translateX(10px);
+        }
+        66%{
+            transform: translateX(0);
+        }
+        99%{
+            transform: translateX(-10px);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+
+.transition.click {
+    opacity: 0;
+}
+
+
+.trans {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2001;
+    transform: translateY(-100%);
+    transition: transform 1.3s ease-in-out; /* Duración de la animación de 3 segundos */
+}
+
+.ld{
+    position: fixed;
+height: 80%;
+width: auto;
+}
+
+.trans.fade-in {
+    transform: translateY(0);
+}
+
+.lod{
+    position: fixed;
+    margin-top: 30%;
+    font-size: 300%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wht{
+    width: 240px;
+    height: 80px;
+    padding: -35px -35px;
+}
+
+
+/* MODAL OVERLAY */
+#modal {
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 100000;
+}
+
+/* CAJA DEL MODAL */
+#modal-content {
+    width: 70vw;                /* Ajusta el ancho a tu gusto */
+    max-width: 600px;          /* Máximo ancho en píxeles */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background: linear-gradient(135deg, #004ec2, #00b7ff); /* Fondo con gradiente */
+    border: 2px solid #3633ff;  /* Borde color morado */
+    box-shadow: 0 0 30px #1e2ce9; 
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+}
+
+#modal-content h2 {
+    margin-bottom: 20px;
+}
+
+#modal-content input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+/* BOTONES DEL MODAL */
+#modal-content button {
+    margin: 5px;
+    padding: 30px 40px;
+    border: none;
+    border-radius: 3px;
+    background: linear-gradient(135deg, #00a5c2, #41ffdf);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    box-shadow: 0 0 5px #00eeff;
+}
+
+#modal-content button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    box-shadow: 0 0 10px #ff7e5f;
+}
+
+#modal-content button:focus {
+    outline: none;
+}
+
+#password-input {
+    width: 300px;       /* Ancho del input */
+    padding: 15px;      /* Altura y espacio interno */
+    font-size: 1.2rem;  /* Tamaño de fuente más grande */
+  }
+
+.secret{
+    height: 30px;
+    width: 30px;
+    margin-top: -720px;
+    position: absolute;
+    z-index: 2000;
+    margin-left: 32%;
+    cursor: pointer;
+}
+  

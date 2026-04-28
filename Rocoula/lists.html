@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de música</title>
+    <link rel="stylesheet" href="lit.css">
+</head>
+<body>
+
+    <audio id="music-background" loop>
+        <source src="../Musica y videos/Main Menu.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="scroll-sound">
+        <source src="Assets/ScrollMenu.ogg" type="audio/ogg">
+    </audio>
+
+    <audio id="confirm-sound">
+        <source src="Assets/Confirm.ogg" type="audio/ogg">
+    </audio>
+
+    <audio id="back-sound">
+        <source src="Assets/Back.ogg" type="audio/ogg">
+    </audio>
+
+    <div class="overlay" id="overlay">
+        <div class="block"></div>
+        <div class="block" style="width: 50%;"></div>
+        <div class="block" style="width: 40%;"></div>
+        <div class="block" style="width: 30%;"></div>
+    </div>
+
+<div class="secret" ></div>
+
+
+    <div class="cont">
+        <a href="#" class="transition">
+            <img src="Assets/Load.jpg" class="oscillate">
+        </a>
+
+        <img class="disco" src="Assets/Live Stream.gif">
+
+        <a href="../Inicio.html" id="back-click">
+            <img class="back" src="Assets/Back.png">
+        </a>
+        
+        <div class="container">
+            <div class="text-bubble"><b>
+              <div class="bubble" data-url="Generos/Rock/rock.html">ROCK</div>
+              <div class="bubble" data-url="Generos/SAD RAP/rap.html">RAP</div>
+              <div class="bubble" data-url="Generos/SOFT/sft.html">SOFT MUSIC</div>
+              <div class="bubble" data-url="Generos/POP/pop.html">ALTERNATIVE POP</div>
+              <div class="bubble sct" data-url="Generos/WilSo/zoro.html"><img src="Assets/What.png" class="wht"></div>
+            </b></div>
+        
+        <div class="bubbles">
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:28;"></span>
+        </div>
+        <img class="vibration" src="Assets/Selector.webp">
+    </div>
+
+    
+    <div class="trans" id="transition">
+        <img class="ld" src="../Musica y videos/Spooky Month.webp" >
+        <div class="lod">Loading...</div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="raw" id="raw"></div>
+        <div class="childraw" id="childraw"></div>
+        <div class="childraw-1" id="childraw-1"></div>
+        <div class="far-raw" id="far-raw"></div>
+        <div class="far-raw_1" id="far-raw_1"></div>
+
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+          <h2>Introduce la contraseña</h2>
+          <input type="password" id="password-input" placeholder="Contraseña">
+          <br><br>
+          <button id="password-submit">Enviar</button>
+          <button id="close-modal">Cerrar</button>
+        </div>
+      </div>
+      
+    <script src="lit.js"></script>
+</body>
+</html>
