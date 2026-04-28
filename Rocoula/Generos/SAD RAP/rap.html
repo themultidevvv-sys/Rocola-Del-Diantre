@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reproductor de Música</title>
+  <link rel="stylesheet" href="../SOFT/sft.css">
+  <link rel="icon" href="../../Icon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h2>Canciones Recomendadas</h2>
+      <div class="song-list" id="songList">
+        <div data-bg="https://i.ytimg.com/vi/6GEkUFZXDXA/maxresdefault.jpg" data-audio="Music/Gustarme Tanto.mp3">
+          Canción 1
+          <span class="tooltip">Gustarme tanto<br>
+            By- Rymon</span>
+        </div>
+        
+        <div data-bg="https://f4.bcbits.com/img/a0253947535_10.jpg" data-audio="Music/DOPAMINA.mp3">
+          Canción 2
+          <span class="tooltip">Dopamina <br>
+          By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/MURua52_YPg/maxresdefault.jpg" data-audio="Music/My Ordinary Life.mp3">
+          Canción 3
+          <span class="tooltip">My Ordinary Life <br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/l7BcasZARlw/maxresdefault.jpg" data-audio="Music/Losing Interest.mp3">
+          Canción 4
+          <span class="tooltip">Losing Interest <br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://images.genius.com/cc33f4ab155b952cba8e98c212483de8.1000x1000x1.png" data-audio="Music/Dear You.mp3">
+          Canción 5
+          <span class="tooltip">Dear You<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/IKkWbF1rgmg/maxresdefault.jpg" data-audio="Music/Toxic Affection.mp3">
+          Canción 6
+          <span class="tooltip">Toxic Affection<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/_yGkn9tI_0M/maxresdefault.jpg" data-audio="Music/BANG-BANG.mp3">
+          Canción 7
+          <span class="tooltip">BLING-BANG-BANG BORN<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/Zvw5v5dYNjk/maxresdefault.jpg" data-audio="Music/Build Our Machine.mp3">
+          Canción 8
+          <span class="tooltip">Build Our Machine<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/jKL52z6Qr30/maxresdefault.jpg" data-audio="Music/Miedo al amor.mp3">
+          Canción 9
+          <span class="tooltip">Miedo al amor <br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.scdn.co/image/ab67616d0000b273537fc388e532e20d6666dd3d" data-audio="Music/Sin Luz.mp3">
+          Canción 10
+          <span class="tooltip">Sin Luz<br>
+            By- Rymon</span>
+        </div>
+        
+<a href="../../lists.html">
+  <img class="back" src="../../Back.png">
+</a>
+
+      </div>
+    </div>
+
+    <div class="right-panel" id="rightPanel">
+      <div class="wave-text">
+        <p><b><span>C</span><span>H</span><span>O</span><span>O</span><span>S</span><span>E</span>
+          <span>O</span><span>N</span><span>E</span></b></p>
+    </div>
+
+      <div class="background-transition" id="bgTransition"></div>
+      <div class="audio-controls">
+        <button class="btn" onclick="prevSong()">&#9664;</button>
+        <div class="progress-bar" onclick="setProgress(event)">
+          <div class="progress" id="progress"></div>
+        </div>
+        <button class="btn-pause" id="playPause">&#9654;</button>
+        <button class="btn" onclick="nextSong()">&#9654;</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <audio id="audioPlayer"></audio>
+  <script src="../SOFT/sft.js">
+  </script>
+  
+</body>
+</html>

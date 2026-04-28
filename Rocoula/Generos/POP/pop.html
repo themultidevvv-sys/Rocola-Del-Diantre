@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reproductor de Música</title>
+  <link rel="stylesheet" href="../SOFT/sft.css">
+  <link rel="icon" href="../../Icon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h2>Canciones Recomendadas</h2>
+      <div class="song-list" id="songList">
+        <div data-bg="https://lastfm.freetls.fastly.net/i/u/500x500/876cfc2c6a0068783239690363452caa.jpg" data-audio="Music/BW.mp3">
+          Canción 1
+          <span class="tooltip">Migraine<br>
+            By- Rymon</span>
+        </div>
+        
+        <div data-bg="https://i.ytimg.com/vi/3vEiqil5d3Q/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDdj6AwN2LhDG90ujumkaKMWGfKiw" data-audio="Music/Notion.mp3">
+          Canción 2
+          <span class="tooltip">Notion<br>
+          By- Rymon</span>
+        </div>
+        <div data-bg="https://i1.sndcdn.com/artworks-SvtlmJZC7SJzheT1-xly06g-t500x500.jpg" data-audio="Music/Stay With Me.mp3">
+          Canción 3
+          <span class="tooltip">Stay With Me<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/6u7d_dhzj-c/maxresdefault.jpg" data-audio="Music/Si Hay Algo.mp3">
+          Canción 4
+          <span class="tooltip">Si Hay Algo <br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/15Me8nszoN0/maxresdefault.jpg" data-audio="Music/BONSAI.mp3">
+          Canción 5
+          <span class="tooltip">Bonasi<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/UsR08cY8k0A/sddefault.jpg" data-audio="Music/golden hour.mp3">
+          Canción 6
+          <span class="tooltip">Golden Hour<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/Sq5HE6LguzE/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGDsgZShDMA8=&rs=AOn4CLDdIwMR4JHnt9l62eAMGDCKO0fmsA" data-audio="Music/Far Too Late.mp3">
+          Canción 7
+          <span class="tooltip">Far Too Late<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/3gVr0zyS21o/maxresdefault.jpg" data-audio="Music/Hopeless Romantic.mp3">
+          Canción 8
+          <span class="tooltip">Hopeless Romantic<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.pinimg.com/736x/95/34/33/9534335f8c33bba9f284258ded82128c.jpg" data-audio="Music/Inertia.mp3">
+          Canción 9
+          <span class="tooltip">Inertia<br>
+            By- Rymon</span>
+        </div>
+        <div data-bg="https://i.ytimg.com/vi/ZI7cFf_ZH4A/maxresdefault.jpg" data-audio="Music/Out of Reach.mp3">
+          Canción 10
+          <span class="tooltip">Out of Reach<br>
+            By- Rymon</span>
+        </div>
+        
+<a href="../../lists.html">
+  <img class="back" src="../../Back.png">
+</a>
+
+      </div>
+    </div>
+
+    <div class="right-panel" id="rightPanel">
+      <div class="wave-text">
+        <p><b><span>C</span><span>H</span><span>O</span><span>O</span><span>S</span><span>E</span>
+          <span>O</span><span>N</span><span>E</span></b></p>
+    </div>
+
+      <div class="background-transition" id="bgTransition"></div>
+      <div class="audio-controls">
+        <button class="btn" onclick="prevSong()">&#9664;</button>
+        <div class="progress-bar" onclick="setProgress(event)">
+          <div class="progress" id="progress"></div>
+        </div>
+        <button class="btn-pause" id="playPause">&#9654;</button>
+        <button class="btn" onclick="nextSong()">&#9654;</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <audio id="audioPlayer"></audio>
+  <script src="../SOFT/sft.js">
+  </script>
+  
+</body>
+</html>
