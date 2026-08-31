@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selector de música</title>
     <link rel="stylesheet" href="lit.css">
+    <script>
+        if (sessionStorage.getItem('pageTransition') === 'lists') {
+            document.documentElement.classList.add('transition-hold');
+        }
+    </script>
 </head>
 <body>
 
@@ -53,7 +58,8 @@
               <div class="bubble" data-url="Generos/POP/pop.html">ALTERNATIVE POP</div>
               <div class="bubble sct" data-url="Generos/WilSo/zoro.html"><img src="Assets/What.png" class="wht"></div>
             </b></div>
-        
+        </div>
+
         <div class="bubbles">
             <span style="--i:11;"></span>
             <span style="--i:12;"></span>
@@ -102,6 +108,12 @@
           <button id="password-submit">Enviar</button>
           <button id="close-modal">Cerrar</button>
         </div>
+      </div>
+
+      <div class="help" id="help">
+        <div class="help-title">Navegación</div>
+        <div class="help-line"><span class="key">&#9650; / &#9660;</span> Moverte entre géneros</div>
+        <div class="help-line"><span class="key">Enter</span> Seleccionar</div>
       </div>
       
     <script src="lit.js"></script>

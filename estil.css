@@ -178,15 +178,15 @@ p{
 }
 
 .link {
-    height: 260%; 
-    width: 15%; 
-
-    position: absolute; 
-    bottom: 0; 
-    right: 0; 
-    z-index: 0; 
-    margin-right: 43%;
-    margin-bottom: -33%;
+    position: fixed;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    width: clamp(120px, 26vmin, 300px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
 }
 
 .transition {
@@ -227,5 +227,9 @@ width: auto;
 /* Animación de salida */
 .transition.fade-out {
     transform: translateY(100%);
+}
+
+html.transition-hold .transition {
+    transform: translateY(0);
 }
 

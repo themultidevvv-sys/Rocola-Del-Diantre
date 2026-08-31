@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
     background-color: #f4f4f4;
     flex-direction: column;
     background: #0c192c;
@@ -27,10 +28,12 @@ body {
     height: 100%;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .block, .raw, .childraw, .childraw-1, .far-raw, .far-raw_1 {
     position: absolute;
+    top: 0;
     background-size: 100% 200%;
     background-repeat: no-repeat;
     border-radius: 20px;
@@ -53,39 +56,23 @@ body {
 
 .raw {
     width: 200%;
-    height: 25%;
+    height: 100%;
     margin-left: -30%;
     background-color:rgb(166, 27, 181);
 }
 
 .childraw, .childraw-1 {
     width: 200%;
-    height: 25%;
+    height: 100%;
     margin-left: -15%;
     background-color:rgb(128, 24, 135);
 }
 
-.childraw {
-    margin-top: 23%;
-}
-
-.childraw-1 {
-    margin-top: -23%;
-}
-
 .far-raw, .far-raw_1 {
     width: 200%;
-    height: 25%;
+    height: 100%;
     margin-left: -30%;
     background-color:rgb(84, 8, 107);
-}
-
-.far-raw {
-    margin-top: 38%;
-}
-
-.far-raw_1 {
-    margin-top: -38%;
 }
 
 .cont {
@@ -96,42 +83,43 @@ body {
 }
 
 .container {
-    margin-top: -22.7%;
-    margin-left: 50%;
-    display: flex;
-    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .text-bubble {
-    display: flex;
-    flex-direction: column;
-    position: relative; /* Necesario para que las burbujas se posicionen dentro del contenedor */
-    width: 200px; /* Ancho fijo para las burbujas */
+    position: relative;
+    width: 0;
+    height: 55vh;
 }
 
 
 
 .bubble {
-    width: 300px;
+    width: 260px;
     padding: 30px;
-    border-radius: 15px;
-    font-size:140% ;
+    border-radius: 20px;
+    font-size:128% ;
     background: linear-gradient(to right,#5c95ff, #b9e6ff);
     transition: background 1.2s, transform 1.2s ease-in-out;
     position: absolute;
+    top: 50%;
+    left: calc(50% + 9rem);
     user-select: none;
     text-align: center;
-    border: 8px double #48639c;
+    border: 6px double #48639c;
 }
 
 .sct{
     background: linear-gradient(to top,#ececee, #98b5c5,rgb(86, 101, 105));
     padding: 5px;
 }
-/* La burbuja seleccionada */
+/* La burbuja seleccionada (columna central) */
 .selected {
     background: linear-gradient(to right, #80dbff, #c9fff6);
-    transform: scale(1.3) translateX(0);
+    transform: translate(-50%, -50%) scale(1.12);
     color: rgb(92, 118, 141);
     box-shadow: 0 0 30px #1ee2e9; 
 }
@@ -142,30 +130,33 @@ body {
 }
 
 
-/* Burbujas cercanas (una posición arriba/abajo) */
+/* Burbujas cercanas / adyacentes (columna 2, más a la izquierda) */
 .bubble.prev {
-    transform: translateY(-140px) translateX(-80px);
+    transform: translate(calc(-50% - 80px), calc(-50% - 18vh));
 }
 
 .bubble.next {
-    transform: translateY(140px)  translateX(-80px);
+    transform: translate(calc(-50% - 80px), calc(-50% + 18vh));
 }
 
-/* Burbujas más alejadas (dos posiciones arriba/abajo) */
+/* Burbujas más alejadas (columna 3, aun más a la izquierda) */
 .bubble.far {
-    transform: translateY(-280px) translateX(-160px); 
+    transform: translate(calc(-50% - 160px), calc(-50% - 36vh)); 
 }
 
 .bubble.faraway {
-    transform: translateY(280px) translateX(-160px); 
+    transform: translate(calc(-50% - 160px), calc(-50% + 36vh)); 
 }
 
 .bubbles {
-    position: relative;
+    position: absolute;
+    inset: 0;
     display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
     z-index: -1;
-    right: 100%;
-    margin-top: 40%;
+    overflow: hidden;
 }
 
 .bubbles span {
@@ -218,15 +209,15 @@ p {
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1000;
         opacity: 1;
-        transition: opacity 3.5s ease-in-out;
         transform: translateY(0);
         z-index: 9999;
+        transition: none;
     
     }
 
     .transition.fade-out{
+        transition: transform 1.3s ease-in-out;
         transform: translateY(200%);
     }
 
@@ -263,36 +254,38 @@ p {
     }
 
     .vibration {
-        position: absolute; 
-        margin-top: 6%;
+        position: absolute;
+        left: calc(50% - 11rem);
+        top: 50%;
+        transform: translateY(-50%);
         animation: vibration 0.6s infinite linear;
-        margin-left: -18%;
     }
     
     .back{
         position: absolute;
-        width: 200px;
+        width: clamp(200px, 12vmin, 200px);
         height: auto;
-        right: 88%;
-        top: 75%;
+        right: 85%;
+        top: 76%;
+        transform: translateX(-15%);
         z-index: 2000;
     }
 
     @keyframes vibration{
         0%{
-            transform: translateX(0);
+            transform: translateY(-50%) translateX(0);
         }
         33%{
-            transform: translateX(10px);
+            transform: translateY(-50%) translateX(10px);
         }
         66%{
-            transform: translateX(0);
+            transform: translateY(-50%) translateX(0);
         }
         99%{
-            transform: translateX(-10px);
+            transform: translateY(-50%) translateX(-10px);
         }
         100%{
-            transform: translateX(0);
+            transform: translateY(-50%) translateX(0);
         }
     }
 
@@ -325,6 +318,19 @@ width: auto;
 
 .trans.fade-in {
     transform: translateY(0);
+}
+
+.trans.fade-out {
+    transform: translateY(100%);
+}
+
+html.transition-hold .trans {
+    transform: translateY(0);
+}
+
+html.transition-hold .transition {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .lod{
@@ -413,12 +419,208 @@ width: auto;
   }
 
 .secret{
-    height: 30px;
-    width: 30px;
-    margin-top: -720px;
+    height: 6px;
+    width: 6px;
+    top: 1.5%;
+    right: 1.5%;
     position: absolute;
+    background-color: rgba(188, 232, 255, 0.35);
+    border: 1px solid rgba(79, 179, 255, 0.45);
+    border-radius: 50%;
     z-index: 2000;
-    margin-left: 32%;
     cursor: pointer;
+}
+
+/* Área de clic ampliada aunque el punto visual sea diminuto */
+.secret::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+}
+
+
+/* Responsive: pantallas medianas */
+@media (max-width: 1100px) {
+    .bubble {
+        width: 240px;
+        padding: 20px;
+        font-size: 120%;
+        left: calc(50% + 3rem);
+    }
+
+    .bubble.prev {
+        transform: translate(calc(-50% - 60px), calc(-50% - 15vh));
+    }
+
+    .bubble.next {
+        transform: translate(calc(-50% - 60px), calc(-50% + 15vh));
+    }
+
+    .bubble.far {
+        transform: translate(calc(-50% - 120px), calc(-50% - 30vh));
+    }
+
+    .bubble.faraway {
+        transform: translate(calc(-50% - 120px), calc(-50% + 30vh));
+    }
+
+    .wht {
+        width: 200px;
+        height: 66px;
+    }
+
+    .disco {
+        margin-left: 3%;
+    }
+}
+
+/* Responsive: pantallas pequeñas (móviles) */
+@media (max-width: 720px) {
+    .bubble {
+        width: 190px;
+        padding: 14px;
+        font-size: 100%;
+        border-width: 4px;
+        left: calc(50% + 2rem);
+    }
+
+    .bubble.prev {
+        transform: translate(calc(-50% - 40px), calc(-50% - 12vh));
+    }
+
+    .bubble.next {
+        transform: translate(calc(-50% - 40px), calc(-50% + 12vh));
+    }
+
+    .bubble.far {
+        transform: translate(calc(-50% - 80px), calc(-50% - 24vh));
+    }
+
+    .bubble.faraway {
+        transform: translate(calc(-50% - 80px), calc(-50% + 24vh));
+    }
+
+    .wht {
+        width: 150px;
+        height: 50px;
+    }
+
+    .disco {
+        height: 28%;
+        margin-left: 1%;
+        margin-top: 10%;
+    }
+
+    .bubbles span {
+        width: 26px;
+        height: 26px;
+        margin: 0 14px;
+    }
+
+    .vibration {
+        left: calc(50% - 12rem);
+    }
+
+    .secret {
+        right: 2%;
+        top: 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bubble {
+        width: 150px;
+        padding: 10px;
+        font-size: 85%;
+        left: calc(50% + 1rem);
+    }
+
+    .bubble.prev {
+        transform: translate(calc(-50% - 30px), calc(-50% - 10vh));
+    }
+
+    .bubble.next {
+        transform: translate(calc(-50% - 30px), calc(-50% + 10vh));
+    }
+
+    .bubble.far {
+        transform: translate(calc(-50% - 60px), calc(-50% - 20vh));
+    }
+
+    .bubble.faraway {
+        transform: translate(calc(-50% - 60px), calc(-50% + 20vh));
+    }
+
+    .wht {
+        width: 120px;
+        height: 40px;
+    }
+
+    .disco {
+        height: 22%;
+        margin-left: 0;
+    }
+
+    .vibration {
+        left: calc(50% - 12rem);
+    }
+}
+
+/* Contenedor de ayuda de navegación (esquina inferior derecha) */
+.help {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    z-index: 2000;
+    background: rgba(188, 232, 255, 0.85);
+    border: 3px solid #4fb3ff;
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: #0a5d8c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px rgba(79, 179, 255, 0.5);
+    max-width: 320px;
+}
+
+.help-title {
+    font-weight: bold;
+    font-size: 115%;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #4fb3ff;
+    padding-bottom: 4px;
+}
+
+.help-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 95%;
+    margin-top: 6px;
+}
+
+.help .key {
+    display: inline-block;
+    background: #4fb3ff;
+    color: #fff;
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 90%;
+    min-width: 58px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .help {
+        bottom: 1.5%;
+        right: 1.5%;
+        padding: 10px 14px;
+        max-width: 220px;
+        font-size: 85%;
+    }
 }
   

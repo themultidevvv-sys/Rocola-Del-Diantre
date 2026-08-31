@@ -7,6 +7,11 @@
     <title>The Multi's Rocola</title>
     <link rel="stylesheet" href="estil.css">
     <link rel="icon" href="Musica y videos/Icono.ico" type="image/x-icon">
+    <script>
+        if (sessionStorage.getItem('pageTransition') === 'inicio') {
+            document.documentElement.classList.add('transition-hold');
+        }
+    </script>
 </head>
 <body>
     <div id="modal">
@@ -34,12 +39,11 @@
     Tu navegador no soporta el elemento de audio.
 </audio>
 
-    <video id="background-video" loop autoplay muted>
+    <video id="background-video" loop muted>
         <source src="Musica y videos/Fondo.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
     </video>
-<a href="#" class="link">
-</a>
+<a href="#" class="link" aria-label="Entrar a la rocola"></a>
 
 <div class="transition" id="transition">
     <img src="Musica y videos/Spooky Month.webp" >
