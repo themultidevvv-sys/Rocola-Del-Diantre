@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(function () {
             sessionStorage.setItem('pageTransition', 'inicio');
-            window.location.href = "../Inicio.html";
+            window.location.href = "../index.html";
         }, TRANSITION_MS);
     }
 
