@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transition.addEventListener('click', function (e) {
             e.preventDefault();
             transition.classList.add('click');
-            musicBackground.play();
+            musicBackground.play().catch(function () {});
         });
 
         window.addEventListener('click', function () {
